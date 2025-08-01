@@ -1,13 +1,8 @@
-<div style="display: flex; gap: 20px;">
-
-<div style="flex: 1">
-  
-#### 🔹 Cách của bạn
-- Topic: With or without function?
+# How to allign the window position screen in the middle of the main screen (Auto allignment)
 <table>
   <tr>
-    <th>With function</th>
-    <th>Without function</th>
+    <th>Solution 1: Using equation</th>
+    <th>Solution 2: Using method()</th>
   </tr>
   <tr>
     <td>
