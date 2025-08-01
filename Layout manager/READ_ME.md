@@ -39,6 +39,7 @@
             window()
               </code></pre>
             </td>
+         <td>
       e<pre><code>
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QDesktopWidget
