@@ -1,3 +1,9 @@
+<div style="display: flex; gap: 20px;">
+
+<div style="flex: 1">
+  
+#### 🔹 Cách của bạn
+Cách 1: Căn chỉnh cửa sổ ngay chính giữa màn hình
 ~~~python
 import sys
 from PyQt5.QtWidgets import *
