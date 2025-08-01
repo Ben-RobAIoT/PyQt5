@@ -12,13 +12,13 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget
 
-def hovered(link):
+def hovered(link):  # Hover: Lơ lửng, có nghĩa là: Hiển thị trực tiếp trên Terminal giao diện lập trình luôn
     print("hovering on:", link)
 
-def clicked(link):
+def clicked(link): # Click: Nhấn, có nghĩa là: Khi nhấn vào label thì sẽ được điều hướng tới trang khác được gán đường dẫn
     print("clicked:", link)
 
-def window():
+def window(): # Giao diện cửa sổ làm việc và hiển thị
     app = QApplication(sys.argv)
     win = QWidget() 
 
