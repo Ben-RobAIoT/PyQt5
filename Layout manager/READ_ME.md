@@ -8,7 +8,6 @@
   <tr>
     <td>
       <pre><code>
-        ~~~python
 import sys
 from PyQt5.QtWidgets import *
 
