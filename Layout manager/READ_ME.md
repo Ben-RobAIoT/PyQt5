@@ -1,10 +1,13 @@
-<div style="display: flex; gap: 20px;">
-
-<div style="flex: 1">
-  
-#### 🔹 Cách của bạn
-Cách 1: Căn chỉnh cửa sổ ngay chính giữa màn hình
-~~~python
+1. Solution: Using **function**
+- Topic: With or without function?
+<table>
+  <tr>
+    <th>With function</th>
+    <th>Without function</th>
+  </tr>
+  <tr>
+    <td>
+      <pre><code>
 import sys
 from PyQt5.QtWidgets import *
 
@@ -34,3 +37,35 @@ def window():
 
 if __name__ == '__main__':
     window()
+      </code></pre>
+    </td>
+    <td>
+      <pre><code>
+import sys
+from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QDesktopWidget
+
+def window():
+    app = QApplication(sys.argv)
+    win = QDialog()
+    win.resize(500, 500)  # Kích thước cửa sổ
+
+    # Nút bấm
+    b1 = QPushButton("Button1", win)
+    b1.move(50, 20)
+
+    # Căn giữa cửa sổ
+    qr = win.frameGeometry()  # Lấy khung hình của cửa sổ
+    cp = QDesktopWidget().availableGeometry().center()  # Tâm của màn hình
+    qr.moveCenter(cp)
+    win.move(qr.topLeft())  # Di chuyển cửa sổ đến vị trí mới
+
+    win.setWindowTitle("PyQt5 - Centered Window")
+    win.show()
+    sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    window()
+      </code></pre>
+    </td>
+  </tr>
+</table>
