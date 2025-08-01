@@ -8,51 +8,63 @@ linkHovered:	Slot method associated with this signal will be called when the lab
 
 ~~~python
 import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QWidget
+
+def hovered(link):
+    print("hovering on:", link)
+
+def clicked(link):
+    print("clicked:", link)
+
 def window():
-   app = QApplication(sys.argv)
-   win = QWidget() 
-	
-   l1 = QLabel()
-   l2 = QLabel()
-   l3 = QLabel()
-   l4 = QLabel()
-	
-   l1.setText("Hello World")
-   l4.setText("TutorialsPoint")
-   l2.setText("welcome to Python GUI Programming")
-	
-   l1.setAlignment(Qt.AlignCenter)
-   l3.setAlignment(Qt.AlignCenter)
-   l4.setAlignment(Qt.AlignRight)
-   l3.setPixmap(QPixmap("python.jpg"))
-	
-   vbox = QVBoxLayout()
-   vbox.addWidget(l1)
-   vbox.addStretch()
-   vbox.addWidget(l2)
-   vbox.addStretch()
-   vbox.addWidget(l3)
-   vbox.addStretch()
-   vbox.addWidget(l4)
-	
-   l1.setOpenExternalLinks(True)
-   l4.linkActivated.connect(clicked)
-   l2.linkHovered.connect(hovered)
-   l1.setTextInteractionFlags(Qt.TextSelectableByMouse)
-   win.setLayout(vbox)
-	
-   win.setWindowTitle("QLabel Demo")
-   win.show()
-   sys.exit(app.exec_())
-	
-def hovered():
-   print "hovering"
-def clicked():
-   print "clicked"
-	
+    app = QApplication(sys.argv)
+    win = QWidget() 
+
+    l1 = QLabel()
+    l2 = QLabel()
+    l3 = QLabel()
+    l4 = QLabel()
+
+    # Label 1: văn bản đơn giản
+    l1.setText("Hello World")
+    l1.setAlignment(Qt.AlignCenter)
+    l1.setTextInteractionFlags(Qt.TextSelectableByMouse)
+
+    # Label 2: chứa liên kết HTML
+    l2.setText('<a href="https://python.org">Welcome to Python GUI Programming</a>')
+    l2.setAlignment(Qt.AlignCenter)
+    l2.setOpenExternalLinks(True)  # Không mở browser, dùng connect
+    l2.linkHovered.connect(hovered)
+
+    # Label 3: hình ảnh
+    pixmap = QPixmap("python.png") # Lưu ý, phải tải một file ảnh với định dạng (png, jpg,...) về (Đặt chung thư mục) hoặc (Có đường dẫn rõ ràng)
+    resized_pixmap = pixmap.scaled(200, 150, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+    l3.setPixmap(resized_pixmap)
+    l3.setAlignment(Qt.AlignCenter)
+
+    # Label 4: liên kết khác
+    l4.setText('<a href="https://tutorialspoint.com">TutorialsPoint</a>')
+    l4.setAlignment(Qt.AlignCenter)
+    l4.setOpenExternalLinks(True)
+    l4.linkActivated.connect(clicked)
+
+    # Layout
+    vbox = QVBoxLayout()
+    vbox.addWidget(l1)
+    vbox.addStretch()
+    vbox.addWidget(l2)
+    vbox.addStretch()
+    vbox.addWidget(l3)
+    vbox.addStretch()
+    vbox.addWidget(l4)
+
+    win.setLayout(vbox)
+    win.setWindowTitle("QLabel Demo")
+    win.show()
+    sys.exit(app.exec_())
+
 if __name__ == '__main__':
-   window()
+    window()
 ~~~
