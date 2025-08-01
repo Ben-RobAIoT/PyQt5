@@ -7,6 +7,7 @@
   </tr>
   <tr>
     <td>
+      ```python
       <pre><code>
 import sys
 from PyQt5.QtWidgets import *
@@ -41,7 +42,6 @@ if __name__ == '__main__':
     </td>
     <td>
       <pre><code>
-      ~~~python
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QDesktopWidget
 
