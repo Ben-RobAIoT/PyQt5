@@ -1,4 +1,8 @@
-1. Solution: Using **function**
+<div style="display: flex; gap: 20px;">
+
+<div style="flex: 1">
+  
+#### 🔹 Cách của bạn
 - Topic: With or without function?
 <table>
   <tr>
@@ -41,7 +45,6 @@ if __name__ == '__main__':
     </td>
     <td>
       <pre><code>
-      ~~~python
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog, QPushButton, QDesktopWidget
 
