@@ -1,4 +1,4 @@
-~
+~~~python
 import sys
 from PyQt5.QtWidgets import *
 
@@ -28,5 +28,4 @@ def window():
 
 if __name__ == '__main__':
     window()
-
 ~
